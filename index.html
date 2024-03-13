@@ -56,7 +56,7 @@
       <li class="fragment">$t$ is called the threshold needed to recover the secret
       <li class="fragment">$n$ is the number of shares
       <li class="fragment">Having $t-1$ shares gives you no information about the secret
-      <li class="fragment">Having $t$ shares allows you to recover the secret
+      <li class="fragment">Having $t$ shares allows you to recover the secret (and much more!)
     </ul>
   </section>
   <section>
@@ -85,8 +85,9 @@
   <section>
     <h2>Key Recovery</h2>
     <ul>
-      <li class="fragment">$t$ shares each generate a LaGrange Interpolation Polynomial $g_i$ over the $x$ coordinates
-      <li class="fragment">The value at $0$ of each share is combined to recover the secret $e$
+      <li class="fragment">Participants $T$ where $|T|=t$ each generate a LaGrange Interpolation Polynomial $g_i$ over the $x$ coordinates
+      <li class="fragment">The sum of the polynomials is the same as the original polynomial $\sum_{i\in T} g_i(x)=f(x)$
+      <li class="fragment">The value at $0$ of each share $g_i(0)$ is combined to recover the secret $f(0)=e$
     </ul>
   </section>
   <section>
@@ -156,7 +157,7 @@
     <ul>
       <li class="fragment">Brand new type of wallet is needed to make FROST viable (not HD wallet compatible)
       <li class="fragment">Initial ceremony for share generation and secret storing.
-      <li class="fragment">Anytime a participant is added or removed, new ceremony required.
+      <li class="fragment">Anytime a participant is added or removed, new ceremony required (but same secret kept!).
       <li class="fragment">Funds can stay in the same address even as you change participants!
       <li class="fragment">Nonce generation has to be done very carefully.
       <li class="fragment">Use double-tweaking instead of BIP32 paths for address privacy.
@@ -175,7 +176,8 @@
     <ul>
       <li class="fragment">Software/Hardware
       <li class="fragment">Seed Backup/PSBT incompatible
-      <li class="fragment">New, not hardened
+      <li class="fragment">Ceremony Requirement
+      <li class="fragment">Hasn't been tested
     </ul>
   </section>
   <section>
